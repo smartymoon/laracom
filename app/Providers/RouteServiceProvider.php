@@ -57,6 +57,12 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             require base_path('routes/web.php');
         });
+
+        Route::group([
+            'namespace' => $this->namespace.'\Admin',
+        ], function ($router) {
+            require base_path('routes/admin.php');
+        });
     }
 
     /**
