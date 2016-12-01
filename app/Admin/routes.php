@@ -10,5 +10,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('users', UserController::class);
+    $router->get('/example/{example}/image','ExampleController@saveImages')->name('exampleImageSave');
+    $router->resource('example', ExampleController::class);
 
 });
