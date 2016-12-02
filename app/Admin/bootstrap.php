@@ -17,5 +17,7 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
+Admin::css('/packages/dropzone/dropzone.css');
+Admin::js('/packages/dropzone/dropzone.js');
 
 

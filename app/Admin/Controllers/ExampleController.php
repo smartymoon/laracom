@@ -46,7 +46,8 @@ class ExampleController extends Controller
         //show Pics And change Pics
         return Admin::content(function(Content $content) use ($example){
             $content->header('案例图片');
-            $content->body(new Box('管理图片', new \App\Admin\NormalPage('admin.multimage',$example)));
+            //$content->body(new Box('管理图片', new \App\Admin\NormalPage('admin.multimage',$example)));
+            $content->body(view('admin.multimage'));
         });
     }
 
@@ -90,7 +91,6 @@ class ExampleController extends Controller
     protected function grid()
     {
         return   Admin::grid(Example::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
             $grid->name();
             $grid->description();
@@ -98,7 +98,7 @@ class ExampleController extends Controller
             $grid->updated_at();
             $grid->rows(function($row){
                 $row->actions()->add(function ($row) {
-                    return "<span  onclick='location.href=\"". route('exampleImageSave',['id'=>$row->id])."\"'><i class='fa fa-image'></i></span>";
+                    return "<a  href='".route('exampleImageSave',['id'=>$row->id])."' ><i class='fa fa-image'></i></a>";
                 });
             });
         });
