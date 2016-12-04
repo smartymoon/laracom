@@ -95,6 +95,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class=am-g>
+                                    <div class="am-u-md-12">
+                                        {!! Geetest::render() !!}
+                                    </div>
+                                </div>
 
                                 <div class="am-g">
                                     <div class="am-u-md-9">
@@ -158,8 +163,12 @@
 @section('script')
     <script src="/packages/swal/sweetalert.min.js"></script>
     <script>
+        window.geek_switch = false;
         $(function(){
             $('form').submit(function(){
+                if(!window.geek_switch){
+                    return false;
+                }
                 var data = $(this).serialize();
                 data._token = '{{ csrf_token() }}';
                 $.ajax({

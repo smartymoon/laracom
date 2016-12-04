@@ -29,6 +29,7 @@ class MessageRequest extends FormRequest
             'email'=>'email',
             'file'=>'image',
             'content'=>'required',
+            'geetest_challenge' => 'required|geetest'
         ];
     }
 
@@ -40,6 +41,8 @@ class MessageRequest extends FormRequest
            'email.email'  =>'email格式不正确',
            'file.image'   =>'附加必须图片',
            'content.required'=>'内容必须有',
+           'geetest' => '验证滑块位置不对',
+           'geetest_challenge.required'=>'请先滑动滑块进行验证',
         ];
     }
 }

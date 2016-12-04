@@ -28,3 +28,4 @@ Route::get('about', function(){
 Route::get('join','JobController@index')->name('join');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+Route::get('auth/geetest','Auth\AuthController@getGeetest');
