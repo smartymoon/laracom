@@ -18,6 +18,7 @@
  *
  */
 Admin::css('/packages/dropzone/dropzone.css');
+Admin::css('/css/admin.css');
 Admin::js('/packages/dropzone/dropzone.js');
-
-
+Admin::css('/packages/swal/sweetalert.css');
+Admin::js('/packages/swal/sweetalert.min.js');

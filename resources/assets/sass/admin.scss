@@ -1,0 +1,23 @@
+    .dropzone{
+        border: 2px dashed #0087F7;
+        border-radius: 5px;
+        background: white;
+    }
+    .dropzone_image{
+        margin-bottom:10px;
+        height:200px;
+    }
+    .del_image{
+    	 position: absolute;	
+	 top: 6px;
+	 color: white;
+	 font-size: 10px;
+	 text-align: center;
+	 background: rgba(153, 153, 153, 0.59);
+	 line-height: 24px;
+	 width: 38px;
+	 border-radius: 6px;
+	 left: 20px;
+	 cursor: pointer;
+    }
+

@@ -14,6 +14,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Widgets\Box;
+use Storage;
 
 class ExampleController extends Controller
 {
@@ -63,7 +64,13 @@ class ExampleController extends Controller
 
     public function delImage(ExamplePic $image)
     {
-        $image->delete();
+      if($image->delete())
+      {
+         Storage::delete($image->url);
+         return 'ok';
+      }else{
+         return 'fail';
+      }
     }
     /**
      * Edit interface.
@@ -77,7 +84,6 @@ class ExampleController extends Controller
 
             $content->header('header');
             $content->description('description');
-
             $content->body($this->form()->edit($id));
         });
     }
