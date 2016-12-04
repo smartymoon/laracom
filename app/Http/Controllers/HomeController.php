@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\AppConfigRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
+     * @var AppConfigRepository
+     */
+    private $repository;
+
+    /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param AppConfigRepository $repository
      */
-    public function __construct()
+    public function __construct(AppConfigRepository $repository)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        $this->repository = $repository;
     }
 
     /**

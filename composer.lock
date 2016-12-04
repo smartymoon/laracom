@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "874ec1fae1bc2d93993e40bdceb5b26d",
-    "content-hash": "88d0e7c567139e9833e68096553fbabc",
+    "hash": "aa268bdedf31aa6dea30d3d94b743660",
+    "content-hash": "97930417f735a221b4572c12d25cf483",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -270,6 +270,57 @@
                 "laravel"
             ],
             "time": "2016-12-02 16:17:24"
+        },
+        {
+            "name": "germey/geetest",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Germey/LaravelGeetest.git",
+                "reference": "7b459f31d304b83b522a1e98b61bc82afce6c0a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/Germey/LaravelGeetest/7b459f31d304b83b522a1e98b61bc82afce6c0a5.zip",
+                "reference": "7b459f31d304b83b522a1e98b61bc82afce6c0a5",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Germey\\Geetest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Germey",
+                    "email": "cqc@cuiqingcai.com"
+                }
+            ],
+            "description": "Geetest Package for Laravel5",
+            "keywords": [
+                "Germey",
+                "geetest",
+                "laravel"
+            ],
+            "time": "2016-10-10 11:59:55"
         },
         {
             "name": "guzzlehttp/psr7",
