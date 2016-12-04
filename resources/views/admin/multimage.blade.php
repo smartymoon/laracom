@@ -10,9 +10,9 @@
     }
 </style>
 <div class="row">
-    @foreach([2,3,4,5] as $img)
+    @foreach($example->images as $img)
    <div class="col-md-2">
-       <img src="http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg" class="img-responsive img-rounded dropzone_image" alt="">
+       <img src="{{ env('QINIU_CUSTOM_URL').'/'.$img->url }}" class="img-responsive img-rounded dropzone_image" alt="">
    </div>
    @endforeach
 </div>
@@ -27,6 +27,11 @@
 </div>
 <script>
     $(function(){
-        new Dropzone("div.dropzone", { url: "/file/post"});
+        new Dropzone("div.dropzone", {
+            url: "{{ route('saveExampleImage',['example'=>$example->id]) }}",
+            sending: function(file, xhr, formData) {
+                formData.append("_token", "{{ csrf_token() }}");
+            },
+        });
     })
 </script>

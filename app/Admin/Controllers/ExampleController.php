@@ -3,8 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Entities\Example;
-use App\Entities\ExamplePic;
 
+use App\Entities\ExamplePic;
+use App\Http\Requests\ExampleImageCreate;
 use App\Repositories\ExampleRepository;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -46,11 +47,24 @@ class ExampleController extends Controller
         //show Pics And change Pics
         return Admin::content(function(Content $content) use ($example){
             $content->header('案例图片');
-            //$content->body(new Box('管理图片', new \App\Admin\NormalPage('admin.multimage',$example)));
-            $content->body(view('admin.multimage'));
+            $content->body(view('admin.multimage',compact('example')));
         });
     }
 
+    public function doSaveImage(Example $example,ExampleImageCreate $request)
+    {
+       $url = $request->file('file')->store('/');
+       if($url == 0)
+       {
+          return response('失败','400');
+       }
+       $example->images()->save(new ExamplePic(['url'=>$url]));
+    }
+
+    public function delImage(ExamplePic $image)
+    {
+        $image->delete();
+    }
     /**
      * Edit interface.
      *

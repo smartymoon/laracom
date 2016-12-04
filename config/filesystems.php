@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => 'qiniu',
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +61,17 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
-
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => env('QINIU_DEFAULT_URL'),                //你的七牛域名
+                'custom'    => env('QINIU_CUSTOM_URL'),                //你的自定义域名
+                'https'     => '',
+            ],
+            'access_key'=> env('QINIU_ACCESS'),  //AccessKey
+            'secret_key'=> env('QINIU_SECRET'),  //SecretKey
+            'bucket'    => env('QINIU_BUCKET'),  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址 ??
+        ],
     ],
-
 ];
