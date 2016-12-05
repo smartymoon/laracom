@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MessageRequest;
+use App\Mail\MessageRecieved;
 use App\Repositories\MessageRepository;
 use Illuminate\Http\Request;
+use Mail;
 use Storage;
 
 class MessageController extends Controller
@@ -51,11 +53,13 @@ class MessageController extends Controller
         $data =  $request->all();
         if($request->file('file'))
         {
-            $path = $request->file('file')->store();
+            $path = $request->file('file')->store('/');
             $data['image'] = $path;
         }
-        $res  = $this->repository->create($data);
-        if($res)
+        $message  = $this->repository->create($data);
+        Mail::to('smartymoon@qq.com')->send(new MessageRecieved($message));
+
+        if($message)
         {
             return ['status'=>1];
         }

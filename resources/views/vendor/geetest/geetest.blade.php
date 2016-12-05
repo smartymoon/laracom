@@ -11,8 +11,6 @@
                 if (!validate) {
                     swal('{{ Config::get('geetest.client_fail_alert')}}');
                     e.preventDefault();
-                }else{
-                    window.geek_switch = true;
                 }
             });
             captchaObj.appendTo("#geetest-captcha");

@@ -72,7 +72,7 @@
                     <div class="am-u-md-7">
                         <div class="contact-form">
                             <h3 class="contact-form_title">Your Request</h3>
-                            <form method="post" action="{{ route('message') }}" class="am-form">
+                            <form method="post" action="{{ route('message') }}" class="am-form" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="am-g">
                                     <div class="am-u-md-6">
@@ -158,23 +158,36 @@
             <!--index-container end-->
         </div>
     </div>
+    <div class="loading-cover">
+        <img src="/image/jz.gif" alt="">
+    </div>
 @endsection
 
 @section('script')
     <script src="/packages/swal/sweetalert.min.js"></script>
     <script>
-        window.geek_switch = false;
         $(function(){
+
+            $(document).ajaxStart(function(){
+                $('.loading-cover').show();
+                $('.loading-cover img').show();
+            });
+
+            $(document).ajaxStop(function(){
+                $('.loading-cover').hide();
+                $('.loading-cover img').hide();
+            });
+
             $('form').submit(function(){
-                if(!window.geek_switch){
+                if(!$('.gt_ajax_tip').hasClass('success')){
                     return false;
                 }
-                var data = $(this).serialize();
-                data._token = '{{ csrf_token() }}';
                 $.ajax({
                    url: $(this).attr('action'),
                    method: "POST",
-                   data:data,
+                   data: new FormData(this),
+                   processData: false,
+                   contentType: false,
                    success:function(){
                        swal({
                           title:'提交成功',
