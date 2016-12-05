@@ -20,11 +20,10 @@ class ExampleController extends Controller
 {
     use ModelForm;
 
-    private $repository;
 
-    public function __construct(ExampleRepository $repository)
+    public function __construct()
     {
-       $this->repository = $repository;
+
     }
 
     /**

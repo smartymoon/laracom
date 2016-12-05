@@ -19,4 +19,6 @@ Route::group([
     $router->resource('appConfig', AppConfigController::class);
     $router->resource('message', MessageController::class);
     $router->resource('job', JobController::class);
+    $router->resource('news', NewsController::class);
+    $router->resource('newsCat', NewsCatController::class);
 });

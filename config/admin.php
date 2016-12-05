@@ -36,14 +36,14 @@ return [
      */
     'upload'  => [
 
-        'disk' => 'admin',
+        'disk' => 'qiniu',
 
         'directory'  => [
             'image'  => 'image',
             'file'   => 'file',
         ],
 
-        'host' => 'http://localhost:8000/upload/',
+        'host' => env('QINIU_CUSTOM_URL'),
     ],
 
     /*
