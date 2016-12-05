@@ -25,7 +25,11 @@ Route::get('about', function(){
     return view('about');
 })->name('about');
 
+
 Route::get('join','JobController@index')->name('join');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('auth/geetest','Auth\AuthController@getGeetest');
+
+Route::get('newsCat/{cat}',"NewsController@cat")->name('newsCat');
+Route::get('news/{news}',"NewsController@news");
