@@ -7,9 +7,7 @@
  */
 
 namespace SmartyMoon\Repository\contract;
-use Closure;
-
-
+use \Closure;
 
 interface CacheInterface
 {

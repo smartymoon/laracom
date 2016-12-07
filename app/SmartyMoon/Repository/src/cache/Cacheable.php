@@ -9,7 +9,8 @@
 namespace SmartyMoon\Repository\cache;
 
 use SmartyMoon\Repository\contract\CacheInterface;
-use Closure;
+use \Closure;
+use Cache;
 
 class Cacheable implements CacheInterface
 {
@@ -24,18 +25,18 @@ class Cacheable implements CacheInterface
 
     public function remember($key, Closure $entity, $tag = null)
     {
-        return cache()->tags($tag == null ? $this->tag : $tag)->remember($key, $this->cacheTime, $entity);
+        return Cache::tags($tag == null ? $this->tag : $tag)->remember($key, $this->cacheTime, $entity);
     }
     public function forget($key, $tag = null)
     {
-        cache()->tags($tag == null ? $this->tag : $tag)->forget($key);
+        Cache::tags($tag == null ? $this->tag : $tag)->forget($key);
     }
     public function clearCache($tag = null)
     {
-        cache()->tags($tag == null ? $this->tag : $tag)->flush();
+        Cache::tags($tag == null ? $this->tag : $tag)->flush();
     }
     public function clearAllCache()
     {
-        cache()->flush();
+        Cache::flush();
     }
 }

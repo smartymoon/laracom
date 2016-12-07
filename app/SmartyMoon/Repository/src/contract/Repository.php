@@ -1,35 +1,34 @@
 <?php
 namespace SmartyMoon\Repository\contract;
+use \Closure;
+
 
 abstract class Repository implements RepositoryInterface
 {
     public $SmartyCache;
-    protected abstract function model();
-    protected abstract function tag();
+    public $cacheTime = 60;
+    public $tag;
 
     function __construct()
     {
+        $this->tag   = get_class($this->model);
         $this->SmartyCache = app('SmartyCache',[
-           'tag'       => $this->tag(),
-           'cacheTime' => $this->cacheTime()
+           'tag'       => $this->tag,
+           'cacheTime' => $this->cacheTime
         ]);
     }
 
-    public function cacheTime()
-    {
-        return 60;
-    }
     public function count()
     {
-        $count = $this->remember($this->tag() . '.count', function () {
-            return $this->model()->count();
+        $count = $this->remember($this->tag . '.count', function () {
+            return $this->model->count();
         });
         return $count;
     }
     public function all()
     {
-        $all = $this->remember($this->tag() . '.all', function () {
-            return $this->model()->all();
+        $all = $this->remember($this->tag . '.all', function () {
+            return $this->model->all();
         });
         return $all;
     }
@@ -49,5 +48,4 @@ abstract class Repository implements RepositoryInterface
     {
         $this->SmartyCache->clearAllCache();
     }
-
 }

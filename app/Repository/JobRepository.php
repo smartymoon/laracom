@@ -11,19 +11,17 @@ namespace  App\Repository;
 use SmartyMoon\Repository\contract\Repository;
 use App\Model\Job;
 
-class JobRepository extends  Repository
+class JobRepository extends Repository
 {
-    /**
-     * @return \Illuminate\Foundation\Application|mixed
-     */
-    protected function model()
+
+    public $model;
+
+    public function __construct()
     {
-        return app(Job::class);
+        $this->model = new Job();
+        parent::__construct();
     }
 
-    protected function tag(){
-       return 'Job';
-    }
     //all data action will be whiten here
     //永远不要在Controller 中写 JobRepository->model()
 
