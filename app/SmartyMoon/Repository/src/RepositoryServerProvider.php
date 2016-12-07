@@ -5,8 +5,9 @@ namespace SmartyMoon\Repository;
 use SmartyMoon\Repository\cache\Cacheable;
 use SmartyMoon\Repository\cache\NoCache;
 use Illuminate\Support\ServiceProvider;
+use SmartyMoon\Repository\command\RepositoryMakeCommand;
 
-class CacheServerProvider extends ServiceProvider
+class RepositoryServerProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -32,5 +33,6 @@ class CacheServerProvider extends ServiceProvider
             }
             return new NoCache();
         });
+        $this->commands(RepositoryMakeCommand::class);
     }
 }

@@ -183,7 +183,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        SmartyMoon\Repository\CacheServerProvider::class,
+        SmartyMoon\Repository\RepositoryServerProvider::class,
     ],
 
     /*
