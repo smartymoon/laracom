@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Entities\Job;
+use App\Model\Job;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;

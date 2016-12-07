@@ -2,11 +2,11 @@
 
 namespace App\Admin\Controllers;
 
-use App\Entities\Example;
+use App\Model\Example;
 
-use App\Entities\ExamplePic;
+use App\Model\ExamplePic;
+
 use App\Http\Requests\ExampleImageCreate;
-use App\Repositories\ExampleRepository;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;

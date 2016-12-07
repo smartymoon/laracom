@@ -170,7 +170,6 @@ return [
         //
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Encore\Admin\Providers\AdminServiceProvider::class,
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,

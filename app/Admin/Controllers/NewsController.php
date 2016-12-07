@@ -2,9 +2,9 @@
 
 namespace App\Admin\Controllers;
 
-use App\Entities\News;
+use App\Model\News;
 
-use App\Entities\NewsCat;
+use App\Model\NewsCat;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
