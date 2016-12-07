@@ -1,0 +1,13 @@
+{
+    "name": "smartymoon/repository",
+    "description": "repository for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SmartyMoon",
+            "email": "pp787qq@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

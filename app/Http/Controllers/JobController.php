@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\JobRepository;
+use App\Repository\JobRepository;
 
 class JobController extends Controller
 {

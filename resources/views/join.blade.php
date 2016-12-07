@@ -90,7 +90,7 @@
                                     ">
                                         <div class="am-panel-bd">
                                             <div class="vacancies--item_content js-accordion--pane_content" style="">
-                                                {!! $job->required !!}}
+                                                {!! $job->required !!}
                                             </div>
                                         </div>
                                     </div>
