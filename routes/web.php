@@ -32,4 +32,4 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('auth/geetest','Auth\AuthController@getGeetest');
 
 Route::get('newsCat/{cat}',"NewsController@cat")->name('newsCat');
-Route::get('news/{news}',"NewsController@news");
+Route::get('news/{news}',"NewsController@news")->name('news');

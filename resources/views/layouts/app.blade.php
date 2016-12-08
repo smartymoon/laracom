@@ -58,7 +58,7 @@
             </div>
             <!--header end-->
 
-
+            @inject('menus','App\widget\MenuNewsCat')
             <!--nav start-->
             <div class="nav-contain">
                 <div class="nav-inner">
@@ -80,9 +80,9 @@
                             <a href="html/news.html">新闻中心</a>
                             <!-- sub-menu start-->
                             <ul class="sub-menu">
-                                <li class="menu-item"><a href="html/news-content.html">公司动态</a></li>
-                                <li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-                                <li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
+                                @foreach($menus->list() as $menu)
+                                    <li class="menu-item"><a href="{{ route('newsCat',['cat'=>$menu->id]) }}">{{ $menu->name }}</a></li>
+                                @endforeach
                             </ul>
                             <!-- sub-menu end-->
                         </li>
@@ -127,16 +127,12 @@
                                     <li class=""><a href="html/example.html" class="" >客户案例</a></li>
                                     <li class=""><a href="html/solution.html" class="" >解决方案</a></li>
                                     <li class="am-parent">
-                                        <a href="html/news.html" class="" >新闻中心</a>
+                                        <a href="" class="" >新闻中心</a>
                                         <ul class="am-menu-sub am-collapse  ">
+                                            @foreach($menus->list() as $menu)
+                                            @endforeach
                                             <li class="">
-                                                <a href="html/news-content.html" class="" >公司动态</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="html/404-dark.html" class="" >行业动态</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="html/404-light.html" class="" >精彩专题</a>
+                                                <a href="{{ route('newsCat',['cat'=>$menu->id]) }}" class="" >{{ $menu->name }}</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -263,4 +259,3 @@
 @yield('script')
 </body>
 </html>
-

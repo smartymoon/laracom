@@ -88,6 +88,7 @@ class NewsController extends Controller
         return Admin::form(News::class, function (Form $form) {
             $categories = NewsCat::all()->pluck('name','id');
             $form->text('title','标题');
+            $form->textarea('abstract','摘要');
             $form->image('cover','封面')->uniqueName();
             $form->select('category_id','分类')->options($categories);
             $form->editor('content','内容');

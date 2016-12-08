@@ -23,11 +23,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Entities\AdminUser::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\NewsCat::class,function(Faker\Generator $faker){
+
+});
+
+$factory->define(App\Model\News::class,function(Faker\Generator $faker){
     return [
-        'name' => 'smartyMoon',
-        'email' => "smartymoon@qq.com",
-        'password' =>  bcrypt('123456'),
-        'remember_token' => str_random(10),
+        'title'=>$faker->sentence(4),
+        'cover'=>'image/515c81e78d90ec4139375056831b4fd7.jpeg',
+        'abstract'=>$faker->paragraph,
+        'content'=>$faker->text,
     ];
 });

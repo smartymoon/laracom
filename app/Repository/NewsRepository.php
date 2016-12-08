@@ -17,5 +17,16 @@ class NewsRepository extends Repository
 
     //all data action will be whiten here
     //永远不要在Controller 中写 JobRepository->model()
-
+    /**
+     * 获得某一分类，某一页面的数据
+     * @param null $cat
+     * @param int $page
+     * @return
+     */
+    public function newsInCat($cat = null,$page = 15)
+    {
+        return $this->remember($this->tag.'_categories_'.$cat.'_page_'.$page,function() use ($cat,$page){
+            return  $this->model->where('category_id',$cat)->orderBy('id','desc')->paginate($page);
+        },'news');
+    }
 }

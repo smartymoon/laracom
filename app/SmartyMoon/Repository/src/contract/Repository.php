@@ -25,6 +25,7 @@ abstract class Repository implements RepositoryInterface
         });
         return $count;
     }
+
     public function all()
     {
         $all = $this->remember($this->tag . '.all', function () {
@@ -32,6 +33,12 @@ abstract class Repository implements RepositoryInterface
         });
         return $all;
     }
+
+    public function find($id)
+    {
+        return $this->model->find($id);
+    }
+
     public function remember($key, Closure $entity, $tag = null)
     {
         return $this->SmartyCache->remember($key, $entity, $tag);
