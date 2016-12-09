@@ -186,10 +186,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="index-more">
-                    <button type="button" class="am-btn am-btn-secondary">MORE&nbsp;&nbsp;>></button>
-                </div>
             </div>
             <!--index-container end-->
         </div>
@@ -246,9 +242,6 @@
                                 <div class="promo_detailed--cta_text">
                                     提供设备的远程锁定，擦除等功能。在设备出现遗失的情况下可以最大程度的保护企业的信息不被泄露。
                                 </div>
-                                <div class="promo_detailed--cta_footer">
-                                    <button type="button" class="am-btn am-btn-danger">MORE&nbsp;&nbsp;>></button>
-                                </div>
                             </div>
                             <div class="promo_detailed-img am-show-sm-only" style="background-image: url('/assets/images/index/promo_detailed_bg.jpg');"></div>
                         </div>
@@ -281,7 +274,6 @@
                             <div class="service_item--text">
                                 <p>标签栏可切换，不必为了新内容而被迫跳转界面，多项工作内容并行处理</p>
                             </div>
-                            <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a></footer>
                         </div>
                     </div>
 
@@ -292,7 +284,6 @@
                             <div class="service_item--text">
                                 <p>集成企业内网所有资源，OA、CRM、ERP、邮件系统，单点登录，无需重复输入密码</p>
                             </div>
-                            <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a></footer>
                         </div>
                     </div>
 
@@ -303,7 +294,6 @@
                             <div class="service_item--text">
                                 <p>办公流程太多，搜索框输入（或语音输入），可以快速找到核心内容</p>
                             </div>
-                            <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a></footer>
                         </div>
                     </div>
 
@@ -314,7 +304,6 @@
                             <div class="service_item--text">
                                 <p>不方便打字时，可以直接用语音输入想要的内容，使您的双手得到解放</p>
                             </div>
-                            <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a></footer>
                         </div>
                     </div>
                 </div>
@@ -354,9 +343,6 @@
                             <li class="pricing_plan--option"><b>3 </b>weeks</li>
                             <li class="pricing_plan--option"><b>10 </b>millions</li>
                         </ul>
-                        <footer class="pricing_plan--footer">
-                            <button type="button" class="am-btn am-btn-secondary">choose</button>
-                        </footer>
                     </div>
                     <div class="pricing_plan popular">
                         <header class="pricing_plan--header"><span class="pricing_plan--label popular">Popular</span>
@@ -369,9 +355,6 @@
                             <li class="pricing_plan--option"><b>6 </b>weeks</li>
                             <li class="pricing_plan--option"><b>30 </b>millions</li>
                         </ul>
-                        <footer class="pricing_plan--footer">
-                            <button type="button" class="am-btn am-btn-danger">choose</button>
-                        </footer>
                     </div>
                     <div class="pricing_plan">
                         <header class="pricing_plan--header">
@@ -384,9 +367,6 @@
                             <li class="pricing_plan--option"><b>Unlimited </b>time</li>
                             <li class="pricing_plan--option"><b>Unlimited </b>sum</li>
                         </ul>
-                        <footer class="pricing_plan--footer">
-                            <button type="button" class="am-btn am-btn-secondary">choose</button>
-                        </footer>
                     </div>
                 </div>
             </div>
@@ -405,9 +385,6 @@
                     我们成立了三年，正用自己的技术力量一步一步改变世界。
                     <br> 我们开创了中国首个开源HTML5跨屏前端框架、可见即可得的IDE、无障碍网页我们是全球独一无二的
                     <br> 云适配技术，我们的目标是打造极致的网页体验。
-                    <footer class="promo_banner--footer">
-                        <button type="button" class="am-btn am-btn-secondary">MORE>></button>
-                    </footer>
             </div>
         </div>
         <!--index-container end-->
