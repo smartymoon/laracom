@@ -35,3 +35,25 @@ $factory->define(App\Model\News::class,function(Faker\Generator $faker){
         'content'=>$faker->text,
     ];
 });
+
+$factory->define(App\Model\Example::class,function(Faker\Generator $faker){
+    return [
+        'name'=>$faker->word,
+        'description'=>$faker->sentence
+    ];
+});
+
+$factory->define(App\Model\ExamplePic::class,function(){
+    return [
+        'url'=>'image/515c81e78d90ec4139375056831b4fd7.jpeg',
+    ];
+});
+
+$factory->define(App\Model\Group::class,function(Faker\Generator $faker){
+   return [
+        'name'=>$faker->userName,
+        'email'=>$faker->email,
+        'position'=>$faker->word,
+        'avatar'=>'image/515c81e78d90ec4139375056831b4fd7.jpeg',
+   ];
+});

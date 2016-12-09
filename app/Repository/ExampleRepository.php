@@ -8,19 +8,25 @@
  */
 
 namespace  App\Repository;
-use SmartyMoon\Repository\Repository;
+use SmartyMoon\Repository\contract\Repository;
 use App\Model\Example;
 
 class ExampleRepository extends  Repository
 {
-    /**
-     * @return \Illuminate\Foundation\Application|mixed
-     */
-    protected function model()
+    public $model;
+
+    public function __construct()
     {
-        return app(Example::class);
+        $this->model = new Example();
+        parent::__construct();
     }
     //all data action will be whiten here
     //永远不要在Controller 中写 JobRepository->model()
 
+    public function exampleWithImages()
+    {
+        return $this->remember($this->tag.'_exampleWithImages',function(){
+            return $this->model->with('images')->get();
+        },'Example');
+    }
 }

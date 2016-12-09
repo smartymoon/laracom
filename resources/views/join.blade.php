@@ -15,7 +15,7 @@
         <div class="breadcrumb-box">
             <div class="am-container">
                 <ol class="am-breadcrumb">
-                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="/">首页</a></li>
                     <li class="am-active">加入我们</li>
                 </ol>
             </div>
@@ -36,7 +36,7 @@
                 <div class="am-g">
                     <div class="am-u-md-3">
                         <div class="careers--articles">
-                            <h3 class="careers--subtitle">Why Work For Us?</h3>
+                            <h3 class="careers--subtitle">为什么加入我们</h3>
                             <div class="careers_articles">
                                 <div class="careers_article">
                                     <i class="careers_article--icon am-icon-diamond"></i>
@@ -46,7 +46,6 @@
                                             成员既有超级学霸（来自Harvard、Google、香港科技大学、中国科技大学），也有来自行业的技术大拿。
                                         </p>
                                     </div>
-                                    <div class="careers_article--footer"><a href="#" class="link">Learn More</a></div>
                                 </div>
                                 <div class="careers_article">
                                     <i class="careers_article--icon am-icon-key"></i>
@@ -56,7 +55,6 @@
                                             顶配iMac、MacBook Pro、MacBook Air 3台瑞士Air空气净化器，PM2.5常年低于50,大趴每月一次，周三享用不尽的免费零食、饮料、水果
                                         </p>
                                     </div>
-                                    <div class="careers_article--footer"><a href="#" class="link">Learn More</a></div>
                                 </div>
                                 <div class="careers_article">
                                     <i class="careers_article--icon am-icon-paper-plane-o"></i>
@@ -66,14 +64,13 @@
                                             充满热情的队友，也是一起撸串、篮球、足球、动感单车、甚至桌上足球组队互虐的好基友
                                         </p>
                                     </div>
-                                    <div class="careers_article--footer"><a href="#" class="link">Learn More</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="am-u-md-9">
-                        <h3 class="careers--subtitle">We Are Looking For:</h3>
+                        <h3 class="careers--subtitle">我们在寻找:</h3>
                         <div class="careers--vacancies">
                             <div class="am-panel-group" id="accordion">
                                 @foreach($jobs as $job)

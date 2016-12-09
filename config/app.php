@@ -232,7 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Geetest' => Germey\Geetest\Geetest::class,
-
+        'SmartyConfig' => SmartyMoon\Repository\SmartyConfig::class,
     ],
 
 ];

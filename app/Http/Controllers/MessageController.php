@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MessageRequest;
 use App\Mail\MessageRecieved;
-use App\Repositories\MessageRepository;
+use App\Repository\MessageRepository;
 use Illuminate\Http\Request;
 use Mail;
-use Storage;
 
 class MessageController extends Controller
 {

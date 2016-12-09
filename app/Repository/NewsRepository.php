@@ -29,4 +29,11 @@ class NewsRepository extends Repository
             return  $this->model->where('category_id',$cat)->orderBy('id','desc')->paginate($page);
         },'news');
     }
+
+    public function allNews($page = 15)
+    {
+        return $this->remember($this->tag.'_allNews_page_'.$page,function() use ($page){
+            return  $this->model->orderBy('id','desc')->paginate($page);
+        },'news');
+    }
 }

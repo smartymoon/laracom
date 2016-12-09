@@ -29,10 +29,16 @@ class NewsController extends Controller
         $this->newsRepository = $newsRepository;
     }
 
-    public function cat($cat)
+    public function cat($cat = 'all')
     {
-        $category = $this->newsCatRepository->find($cat);
-        $newses = $this->newsRepository->newsInCat($cat);
+        if($cat == 'all')
+        {
+            $category  = $this->newsCatRepository->allCat();
+            $newses =    $this->newsRepository->allNews();
+        }else{
+            $category = $this->newsCatRepository->find($cat);
+            $newses = $this->newsRepository->newsInCat($cat);
+        }
         return view('newses',compact('newses','category'));
     }
 
