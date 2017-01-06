@@ -8,20 +8,20 @@
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "0c87981df959c7c1943abe227baf607c92f204f9"
+                "reference": "65b0465e38a9524c9d5eb2dfc0389aba23090625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-debugbar/0c87981df959c7c1943abe227baf607c92f204f9.zip",
-                "reference": "0c87981df959c7c1943abe227baf607c92f204f9",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-debugbar/65b0465e38a9524c9d5eb2dfc0389aba23090625.zip",
+                "reference": "65b0465e38a9524c9d5eb2dfc0389aba23090625",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
                 "maximebf/debugbar": "~1.13.0",
                 "php": ">=5.5.9",
                 "symfony/finder": "~2.7|~3.0"
@@ -58,7 +58,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-09-15T14:05:56+00:00"
+            "time": "2017-01-05T08:53:44+00:00"
         },
         {
             "name": "baum/baum",
@@ -275,12 +275,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/z-song/laravel-admin.git",
-                "reference": "e9683a370413d96a62bac218683605e4fd565073"
+                "reference": "365a2a990ceb77c05cdcab133b50a9aeec85058f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/z-song/laravel-admin/e9683a370413d96a62bac218683605e4fd565073.zip",
-                "reference": "e9683a370413d96a62bac218683605e4fd565073",
+                "url": "https://packagist.phpcomposer.com/files/z-song/laravel-admin/365a2a990ceb77c05cdcab133b50a9aeec85058f.zip",
+                "reference": "365a2a990ceb77c05cdcab133b50a9aeec85058f",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,7 @@
                 "grid",
                 "laravel"
             ],
-            "time": "2016-12-30 06:27:25"
+            "time": "2017-01-05 04:59:07"
         },
         {
             "name": "germey/geetest",
@@ -738,16 +738,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e"
+                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/maximebf/php-debugbar/5f49a5ed6cfde81d31d89378806670d77462526e.zip",
-                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e",
+                "url": "https://packagist.phpcomposer.com/files/maximebf/php-debugbar/afee79a236348e39a44cb837106b7c5b4897ac2a.zip",
+                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +795,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-09-15T14:01:59+00:00"
+            "time": "2017-01-05T08:46:19+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2615,354 +2615,6 @@
                 "test"
             ],
             "time": "2015-05-11T14:41:42+00:00"
-        },
-        {
-            "name": "illuminate/console",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/console.git",
-                "reference": "ef2d4a8210e306f71e4810ed681e5bf1497f57f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/console/ef2d4a8210e306f71e4810ed681e5bf1497f57f0.zip",
-                "reference": "ef2d4a8210e306f71e4810ed681e5bf1497f57f0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.3.*",
-                "illuminate/support": "5.3.*",
-                "nesbot/carbon": "~1.20",
-                "php": ">=5.6.4",
-                "symfony/console": "3.1.*"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Required to use the ping methods on schedules (~5.3|~6.0).",
-                "mtdowling/cron-expression": "Required to use scheduling component (~1.0).",
-                "symfony/process": "Required to use scheduling component (3.1.*)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Console\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Console package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-11-01T18:51:49+00:00"
-        },
-        {
-            "name": "illuminate/container",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/container.git",
-                "reference": "8047b47e1f731c975d9aa0fe0b269064d3f1346d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/container/8047b47e1f731c975d9aa0fe0b269064d3f1346d.zip",
-                "reference": "8047b47e1f731c975d9aa0fe0b269064d3f1346d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.3.*",
-                "php": ">=5.6.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Container\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Container package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-10-02T01:14:30+00:00"
-        },
-        {
-            "name": "illuminate/contracts",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "ce5d73c6015b2054d32f3f8530767847b358ae4e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/contracts/ce5d73c6015b2054d32f3f8530767847b358ae4e.zip",
-                "reference": "ce5d73c6015b2054d32f3f8530767847b358ae4e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Contracts\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Contracts package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-09-26T20:36:27+00:00"
-        },
-        {
-            "name": "illuminate/database",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/database.git",
-                "reference": "8db1197b3d3e8a7393153643774d2924cdc6d906"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/database/8db1197b3d3e8a7393153643774d2924cdc6d906.zip",
-                "reference": "8db1197b3d3e8a7393153643774d2924cdc6d906",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "5.3.*",
-                "illuminate/contracts": "5.3.*",
-                "illuminate/support": "5.3.*",
-                "nesbot/carbon": "~1.20",
-                "php": ">=5.6.4"
-            },
-            "suggest": {
-                "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
-                "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
-                "illuminate/console": "Required to use the database commands (5.3.*).",
-                "illuminate/events": "Required to use the observers with Eloquent (5.3.*).",
-                "illuminate/filesystem": "Required to use the migrations (5.3.*).",
-                "illuminate/pagination": "Required to paginate the result set (5.3.*)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Database\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Database package.",
-            "homepage": "https://laravel.com",
-            "keywords": [
-                "database",
-                "laravel",
-                "orm",
-                "sql"
-            ],
-            "time": "2016-11-14T15:37:58+00:00"
-        },
-        {
-            "name": "illuminate/events",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/events.git",
-                "reference": "cb29124d4eaba8a60bad40e95e3d8b199d040d77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/events/cb29124d4eaba8a60bad40e95e3d8b199d040d77.zip",
-                "reference": "cb29124d4eaba8a60bad40e95e3d8b199d040d77",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "5.3.*",
-                "illuminate/contracts": "5.3.*",
-                "illuminate/support": "5.3.*",
-                "php": ">=5.6.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Events\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Events package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-08-12T14:24:30+00:00"
-        },
-        {
-            "name": "illuminate/filesystem",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "82576e0a6193e76929c929c8a2d3e1552ab64e76"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/filesystem/82576e0a6193e76929c929c8a2d3e1552ab64e76.zip",
-                "reference": "82576e0a6193e76929c929c8a2d3e1552ab64e76",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.3.*",
-                "illuminate/support": "5.3.*",
-                "php": ">=5.6.4",
-                "symfony/finder": "3.1.*"
-            },
-            "suggest": {
-                "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
-                "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
-                "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Filesystem\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Filesystem package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-11-07T22:09:46+00:00"
-        },
-        {
-            "name": "illuminate/support",
-            "version": "v5.3.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/support.git",
-                "reference": "050d0ed3e1c0e1d129d73b2eaa14044e46a66f77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/illuminate/support/050d0ed3e1c0e1d129d73b2eaa14044e46a66f77.zip",
-                "reference": "050d0ed3e1c0e1d129d73b2eaa14044e46a66f77",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/inflector": "~1.0",
-                "ext-mbstring": "*",
-                "illuminate/contracts": "5.3.*",
-                "paragonie/random_compat": "~1.4|~2.0",
-                "php": ">=5.6.4"
-            },
-            "replace": {
-                "tightenco/collect": "self.version"
-            },
-            "suggest": {
-                "illuminate/filesystem": "Required to use the composer class (5.2.*).",
-                "symfony/process": "Required to use the composer class (3.1.*).",
-                "symfony/var-dumper": "Required to use the dd function (3.1.*)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Support\\": ""
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Support package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-11-03T15:25:28+00:00"
         },
         {
             "name": "mockery/mockery",

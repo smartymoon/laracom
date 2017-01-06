@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Model;
-use Baum\Node;
+use Baum\Extensions\Eloquent\Model;
+use Encore\Admin\Traits\AdminBuilder;
+use Encore\Admin\Traits\ModelTree;
 
-class ProductCategory extends Node
+class ProductCategory extends Model
 {
+    use ModelTree, AdminBuilder;
     //
 }

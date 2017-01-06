@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.25 on 2016-11-30.
+ * Generated for Laravel 5.3.28 on 2017-01-05.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2400,27 +2400,38 @@ namespace {
          * @static 
          */
         public static function flush(){
-            \Illuminate\Cache\FileStore::flush();
+            \Illuminate\Cache\RedisStore::flush();
         }
         
         /**
-         * Get the Filesystem instance.
+         * Get the Redis connection instance.
          *
-         * @return \Illuminate\Filesystem\Filesystem 
+         * @return \Predis\ClientInterface 
          * @static 
          */
-        public static function getFilesystem(){
-            return \Illuminate\Cache\FileStore::getFilesystem();
+        public static function connection(){
+            return \Illuminate\Cache\RedisStore::connection();
         }
         
         /**
-         * Get the working directory of the cache.
+         * Set the connection name to be used.
          *
-         * @return string 
+         * @param string $connection
+         * @return void 
          * @static 
          */
-        public static function getDirectory(){
-            return \Illuminate\Cache\FileStore::getDirectory();
+        public static function setConnection($connection){
+            \Illuminate\Cache\RedisStore::setConnection($connection);
+        }
+        
+        /**
+         * Get the Redis database instance.
+         *
+         * @return \Illuminate\Redis\Database 
+         * @static 
+         */
+        public static function getRedis(){
+            return \Illuminate\Cache\RedisStore::getRedis();
         }
         
         /**
@@ -2430,7 +2441,18 @@ namespace {
          * @static 
          */
         public static function getPrefix(){
-            return \Illuminate\Cache\FileStore::getPrefix();
+            return \Illuminate\Cache\RedisStore::getPrefix();
+        }
+        
+        /**
+         * Set the cache key prefix.
+         *
+         * @param string $prefix
+         * @return void 
+         * @static 
+         */
+        public static function setPrefix($prefix){
+            \Illuminate\Cache\RedisStore::setPrefix($prefix);
         }
         
     }
@@ -2964,12 +2986,8 @@ namespace {
         }
         
         /**
-         * Run a select statement against the database and returns a generator.
+         * 
          *
-         * @param string $query
-         * @param array $bindings
-         * @param bool $useReadPdo
-         * @return \Generator 
          * @static 
          */
         public static function cursor($query, $bindings = array(), $useReadPdo = true){
@@ -5526,18 +5544,6 @@ namespace {
         }
         
         /**
-         * Get or set UNIX mode of a file or directory.
-         *
-         * @param string $path
-         * @param int $mode
-         * @return mixed 
-         * @static 
-         */
-        public static function chmod($path, $mode = null){
-            return \Illuminate\Filesystem\Filesystem::chmod($path, $mode);
-        }
-        
-        /**
          * Delete the file at a given path.
          *
          * @param string|array $paths
@@ -6542,6 +6548,18 @@ namespace {
         }
         
         /**
+         * Set the global reply-to address and name.
+         *
+         * @param string $address
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */
+        public static function alwaysReplyTo($address, $name = null){
+            \Illuminate\Mail\Mailer::alwaysReplyTo($address, $name);
+        }
+        
+        /**
          * Set the global to address and name.
          *
          * @param string $address
@@ -7327,6 +7345,61 @@ namespace {
          */
         public static function setSession($session){
             \Illuminate\Routing\Redirector::setSession($session);
+        }
+        
+    }
+
+
+    class Redis extends \Illuminate\Support\Facades\Redis{
+        
+        /**
+         * Get a specific Redis connection instance.
+         *
+         * @param string $name
+         * @return \Predis\ClientInterface|null 
+         * @static 
+         */
+        public static function connection($name = 'default'){
+            return \Illuminate\Redis\Database::connection($name);
+        }
+        
+        /**
+         * Run a command against the Redis database.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */
+        public static function command($method, $parameters = array()){
+            return \Illuminate\Redis\Database::command($method, $parameters);
+        }
+        
+        /**
+         * Subscribe to a set of given channels for messages.
+         *
+         * @param array|string $channels
+         * @param \Closure $callback
+         * @param string $connection
+         * @param string $method
+         * @return void 
+         * @static 
+         */
+        public static function subscribe($channels, $callback, $connection = null, $method = 'subscribe'){
+            \Illuminate\Redis\Database::subscribe($channels, $callback, $connection, $method);
+        }
+        
+        /**
+         * Subscribe to a set of given channels with wildcards.
+         *
+         * @param array|string $channels
+         * @param \Closure $callback
+         * @param string $connection
+         * @return void 
+         * @static 
+         */
+        public static function psubscribe($channels, $callback, $connection = null){
+            \Illuminate\Redis\Database::psubscribe($channels, $callback, $connection);
         }
         
     }
@@ -8833,6 +8906,8 @@ namespace {
         /**
          * Checks whether the method is safe or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
          * @return bool 
          * @static 
          */
@@ -8844,6 +8919,7 @@ namespace {
         /**
          * Checks whether the method is cacheable or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
          * @return bool 
          * @static 
          */
@@ -9310,6 +9386,17 @@ namespace {
          */
         public static function resourceParameters($parameters = array()){
             \Illuminate\Routing\Router::resourceParameters($parameters);
+        }
+        
+        /**
+         * Get or set the verbs used in the resource URIs.
+         *
+         * @param array $verbs
+         * @return array|null 
+         * @static 
+         */
+        public static function resourceVerbs($verbs = array()){
+            return \Illuminate\Routing\Router::resourceVerbs($verbs);
         }
         
         /**
@@ -11877,5 +11964,348 @@ namespace {
     }
 
 
+    class Geetest extends \Germey\Geetest\Geetest{
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getGeetestUrl(){
+            return \Germey\Geetest\GeetestLib::getGeetestUrl();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $geetestUrl
+         * @static 
+         */
+        public static function setGeetestUrl($geetest_url){
+            return \Germey\Geetest\GeetestLib::setGeetestUrl($geetest_url);
+        }
+        
+        /**
+         * Check Geetest server is running or not.
+         *
+         * @param null $user_id
+         * @return int 
+         * @static 
+         */
+        public static function preProcess($user_id = null){
+            return \Germey\Geetest\GeetestLib::preProcess($user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function getResponseStr(){
+            return \Germey\Geetest\GeetestLib::getResponseStr();
+        }
+        
+        /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function getResponse(){
+            return \Germey\Geetest\GeetestLib::getResponse();
+        }
+        
+        /**
+         * Get success validate result.
+         *
+         * @param $challenge
+         * @param $validate
+         * @param $seccode
+         * @param null $user_id
+         * @return int 
+         * @static 
+         */
+        public static function successValidate($challenge, $validate, $seccode, $user_id = null){
+            return \Germey\Geetest\GeetestLib::successValidate($challenge, $validate, $seccode, $user_id);
+        }
+        
+        /**
+         * Get fail result.
+         *
+         * @param $challenge
+         * @param $validate
+         * @param $seccode
+         * @return int 
+         * @static 
+         */
+        public static function failValidate($challenge, $validate, $seccode){
+            return \Germey\Geetest\GeetestLib::failValidate($challenge, $validate, $seccode);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $product
+         * @static 
+         */
+        public static function render($product = 'float'){
+            return \Germey\Geetest\GeetestLib::render($product);
+        }
+        
+    }
+
+
+    class SmartyConfig extends \SmartyMoon\Repository\SmartyConfig{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function get($key, $default = ''){
+            return \SmartyMoon\Repository\AppConfigRepository::get($key, $default);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function count(){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::count();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function all(){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::all();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function find($id){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::find($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function remember($key, $entity, $tag = null){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::remember($key, $entity, $tag);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function forget($key, $tag = null){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::forget($key, $tag);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCache($tag = null){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::clearCache($tag);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearAllCache(){
+            //Method inherited from \SmartyMoon\Repository\contract\Repository            
+            return \SmartyMoon\Repository\AppConfigRepository::clearAllCache();
+        }
+        
+    }
+
+
+    class Admin extends \Encore\Admin\Facades\Admin{
+        
+        /**
+         * Initialize.
+         *
+         * @static 
+         */
+        public static function init(){
+            return \Encore\Admin\Admin::init();
+        }
+        
+        /**
+         * Bootstrap.
+         *
+         * @static 
+         */
+        public static function bootstrap(){
+            return \Encore\Admin\Admin::bootstrap();
+        }
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @param \Closure $callable
+         * @return \Encore\Admin\Grid 
+         * @static 
+         */
+        public static function grid($model, $callable){
+            return \Encore\Admin\Admin::grid($model, $callable);
+        }
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @param \Closure $callable
+         * @return \Encore\Admin\Form 
+         * @static 
+         */
+        public static function form($model, $callable){
+            return \Encore\Admin\Admin::form($model, $callable);
+        }
+        
+        /**
+         * Build a tree.
+         *
+         * @param $model
+         * @return \Encore\Admin\Tree 
+         * @static 
+         */
+        public static function tree($model){
+            return \Encore\Admin\Admin::tree($model);
+        }
+        
+        /**
+         * 
+         *
+         * @param \Closure $callable
+         * @return \Encore\Admin\Content 
+         * @static 
+         */
+        public static function content($callable){
+            return \Encore\Admin\Admin::content($callable);
+        }
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @return mixed 
+         * @static 
+         */
+        public static function getModel($model){
+            return \Encore\Admin\Admin::getModel($model);
+        }
+        
+        /**
+         * Get namespace of controllers.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function controllerNamespace(){
+            return \Encore\Admin\Admin::controllerNamespace();
+        }
+        
+        /**
+         * Add css or get all css.
+         *
+         * @param null $css
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function css($css = null){
+            return \Encore\Admin\Admin::css($css);
+        }
+        
+        /**
+         * Add js or get all js.
+         *
+         * @param null $js
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function js($js = null){
+            return \Encore\Admin\Admin::js($js);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $script
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function script($script = ''){
+            return \Encore\Admin\Admin::script($script);
+        }
+        
+        /**
+         * Admin url.
+         *
+         * @param $url
+         * @return string 
+         * @static 
+         */
+        public static function url($url){
+            return \Encore\Admin\Admin::url($url);
+        }
+        
+        /**
+         * Left sider-bar menu.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function menu(){
+            return \Encore\Admin\Admin::menu();
+        }
+        
+        /**
+         * Get admin title.
+         *
+         * @return \Config 
+         * @static 
+         */
+        public static function title(){
+            return \Encore\Admin\Admin::title();
+        }
+        
+        /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function user(){
+            return \Encore\Admin\Admin::user();
+        }
+        
+    }
+
+
 }
+
+
 
