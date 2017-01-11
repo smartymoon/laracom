@@ -43,8 +43,8 @@ class ProductCategoryController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header('header');
-            $content->description('description');
+            $content->header('产品分类');
+            //$content->description('description');
             //无限级分类内容,Render Instance
             //get Data
             //render
@@ -54,7 +54,6 @@ class ProductCategoryController extends Controller
                 $row->column(6, function (Column $column) {
                     $form = new \Encore\Admin\Widgets\Form();
                     $form->action(route('productCategory.store'));
-                    //$form->select('parent_id', trans('admin::lang.parent_id'))->options($this->productCategoryRender->getSelectOptions());
                     $form->select('parent_id', trans('admin::lang.parent_id'))->options($this->productCategoryRepository->selectOptions());
                     $form->text('title', trans('admin::lang.title'))->rules('required');
                     $form->number('order','排序')->default(0);
@@ -122,14 +121,10 @@ class ProductCategoryController extends Controller
     protected function form()
     {
         return Admin::form(ProductCategory::class, function (Form $form) {
-
-            $form->display('id', 'ID');
-            $form->display('title', '名称');
-            $form->hidden('parent_id');
-            $form->display('order','排序');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->action(route('productCategory.store'));
+            $form->select('parent_id', trans('admin::lang.parent_id'))->options($this->productCategoryRepository->selectOptions());
+            $form->text('title', trans('admin::lang.title'))->rules('required');
+            $form->number('order','排序')->default(0);
         });
     }
 }
