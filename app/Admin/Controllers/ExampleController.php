@@ -10,6 +10,7 @@ use App\Http\Requests\ExampleImageCreate;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
+use Encore\Admin\Grid\Displayers\Actions;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
@@ -36,7 +37,6 @@ class ExampleController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('案例');
-            $content->description('你好吗');
 
             $content->body($this->grid());
         });
@@ -115,10 +115,8 @@ class ExampleController extends Controller
             $grid->description();
             $grid->created_at();
             $grid->updated_at();
-            $grid->rows(function($row){
-                $row->actions()->add(function ($row) {
-                    return "<a  href='".route('exampleImageSave',['id'=>$row->id])."' ><i class='fa fa-image'></i></a>";
-                });
+            $grid->actions(function(Actions $action){
+                    $action->prepend("<a  href='".route('exampleImageSave',['id'=>$action->getkey()])."' ><i class='fa fa-image'></i></a>");
             });
         });
     }
