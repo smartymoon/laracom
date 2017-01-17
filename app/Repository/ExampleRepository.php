@@ -26,7 +26,7 @@ class ExampleRepository extends  Repository
     public function exampleWithImages()
     {
         return $this->remember($this->tag.'_exampleWithImages',function(){
-            return $this->model->with('images')->get();
+            return $this->model->get();
         },'Example');
     }
 }

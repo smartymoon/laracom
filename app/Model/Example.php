@@ -2,17 +2,15 @@
 
 namespace App\Model;
 
+use App\Presenter\ExamplePresenter;
 use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
 
 class Example extends Model
 {
 
+    use PresentableTrait;
+
     protected $fillable = [];
-
-    public function images()
-    {
-        return $this->hasMany(ExamplePic::class);
-    }
-
-
+    protected $presenter = ExamplePresenter::class;
 }

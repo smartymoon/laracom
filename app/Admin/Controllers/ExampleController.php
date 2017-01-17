@@ -20,13 +20,6 @@ use Storage;
 class ExampleController extends Controller
 {
     use ModelForm;
-
-
-    public function __construct()
-    {
-
-    }
-
     /**
      * Index interface.
      *
@@ -79,7 +72,6 @@ class ExampleController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-
             $content->header('header');
             $content->description('description');
             $content->body($this->form()->edit($id));
@@ -111,12 +103,12 @@ class ExampleController extends Controller
         return   Admin::grid(Example::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
             $grid->name()->editable();
+            $grid->pictures()->value(function ($paths){
+                return json_decode($paths,true);
+            })->image();
             $grid->description();
             $grid->created_at();
             $grid->updated_at();
-            $grid->actions(function(Actions $action){
-                    $action->prepend("<a  href='".route('exampleImageSave',['id'=>$action->getkey()])."' ><i class='fa fa-image'></i></a>");
-            });
         });
     }
 
@@ -128,11 +120,15 @@ class ExampleController extends Controller
     protected function form()
     {
         return Admin::form(Example::class, function (Form $form) {
-            $form->display('id', 'ID');
-            $form->text('name','案例名称');
-            $form->textarea('description','案例描述');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->tab('基本信息',function(Form $form){
+                $form->display('id', 'ID');
+                $form->text('name','案例名称');
+                $form->textarea('description','案例描述');
+                $form->display('created_at', 'Created At');
+                $form->display('updated_at', 'Updated At');
+            })->tab('案例图片',function(Form $form){
+               $form->image('pictures')->multiple();
+            });
         });
     }
 

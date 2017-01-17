@@ -41,7 +41,13 @@
                             @if($loop->first)
                                     am-active
                             @endif
-                            "><a href="#tab-4-{{ $loop->index }}"><i class="am-icon-map-o"></i>{{ $example->name }}</a></li>
+                            "
+                            style="
+                               @if($loop->last)
+                                    float:left;
+                               @endif
+                            "
+                            ><a href="#tab-4-{{ $loop->index }}"><i class="am-icon-map-o"></i>{{ $example->name }}</a></li>
                         @endforeach
                     </ul>
                     <div class="am-tabs-bd am-tabs-bd-ofv">
@@ -51,11 +57,16 @@
                                 am-active
                             @endif
                             " id="tab-4-{{ $loop->index }}">
-                            @foreach( $example->images->chunk(4) as $images)
+                            @foreach( $example->present()->images->chunk(4) as $images)
                                 <div class="am-g">
                                      @foreach($images as $image)
-                                        <div class="am-u-md-3">
-                                                  <a href="#" style="background-image: url('{{ env('QINIU_CUSTOM_URL').'/'.$image->url }}');" class="example-item-bg"></a>
+                                        <div class="am-u-md-3"
+                                             style="
+                                                 @if($loop->last)
+                                                         float:left;
+                                                 @endif
+                                         ">
+                                                  <a href="#" style="background-image: url('{{ env('QINIU_CUSTOM_URL').'/'.$image }}');" class="example-item-bg"></a>
                                         </div>
                                      @endforeach
                                 </div>

@@ -183,7 +183,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Baum\Providers\BaumServiceProvider::class,
         SmartyMoon\Repository\RepositoryServerProvider::class,
 
     ],
