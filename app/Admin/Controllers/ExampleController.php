@@ -37,7 +37,6 @@ class ExampleController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('案例');
-
             $content->body($this->grid());
         });
     }
@@ -111,7 +110,7 @@ class ExampleController extends Controller
     {
         return   Admin::grid(Example::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
-            $grid->name();
+            $grid->name()->editable();
             $grid->description();
             $grid->created_at();
             $grid->updated_at();

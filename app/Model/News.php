@@ -12,4 +12,9 @@ class News extends Model
     public function category(){
         return $this->belongsTo(NewsCat::class,'category_id','id');
     }
+
+    public function getAbcAttribute()
+    {
+       return 'shit';
+    }
 }
