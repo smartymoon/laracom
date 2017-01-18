@@ -39,7 +39,7 @@ class MessageRequest extends FormRequest
            'name.required'=>'姓名必须填写',
            'tel.required' =>'电话必须填写',
            'email.email'  =>'email格式不正确',
-           'file.image'   =>'附加必须图片',
+           'file.image'   =>'格式必须是图片',
            'content.required'=>'内容必须有',
            'geetest' => '验证滑块位置不对',
            'geetest_challenge.required'=>'请先滑动滑块进行验证',

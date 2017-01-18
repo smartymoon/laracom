@@ -11,6 +11,5 @@ class Example extends Model
 
     use PresentableTrait;
 
-    protected $fillable = [];
     protected $presenter = ExamplePresenter::class;
 }

@@ -2,6 +2,8 @@
 @section('css')
     <link rel="stylesheet" href="/assets/css/contact.min.css" />
     <link rel="stylesheet" href="/packages/swal/sweetalert.css" />
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/packages/admin/bootstrap-fileinput/css/fileinput.min.css">
 @endsection
 @section('layout')
     <div class="layout-container">
@@ -76,16 +78,22 @@
                                 {{ csrf_field() }}
                                 <div class="am-g">
                                     <div class="am-u-md-6">
-                                        <input type="text" name="name" class="" id="doc-ipt-email-1" placeholder="姓名">
+                                        <div class="am-form-group">
+                                            <input type="text" name="name" class="" id="doc-ipt-email-1" placeholder="姓名">
+                                        </div>
                                     </div>
                                     <div class="am-u-md-6">
-                                        <input type="email" name="email" class="" id="doc-ipt-email-2" placeholder="Email">
+                                       <div class="am-form-group">
+                                            <input type="email" name="email" class="" id="doc-ipt-email-2" placeholder="Email">
+                                       </div>
                                     </div>
                                 </div>
 
                                 <div class="am-g">
                                     <div class="am-u-md-6">
-                                        <input type="text" name="tel" class="" id="doc-ipt-email-3" placeholder="电话">
+                                        <div class="am-form-group">
+                                            <input type="text" name="tel" class="" id="doc-ipt-email-3" placeholder="电话">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class=am-g>
@@ -103,10 +111,14 @@
 
                                 <div class="am-g">
                                     <div class="am-u-md-9">
-                                        <div class="am-form-group am-form-file">
+                                        <div class="am-form-group am-form-file btn-file">
+                                            <!--
                                             <button type="button" class="am-btn am-btn-default am-btn-sm btn-change">
                                                 <i class="am-icon-cloud-upload"></i> 上传文件</button>
                                             <input type="file" name="file">
+                                            -->
+                                            <br>
+                                            <input id="file-3" type="file" name="file" style="position:absolute">
                                         </div>
                                     </div>
                                     <div class="am-u-md-3">
@@ -131,8 +143,18 @@
 
 @section('script')
     <script src="/packages/swal/sweetalert.min.js"></script>
+    <script src="/packages/admin/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="/packages/admin/bootstrap-fileinput/js/fileinput_locale_zh_CN.js"></script>
     <script>
         $(function(){
+            $("#file-3").fileinput({
+                language:"zh_CN",
+                showUpload: false,
+                showCaption: false,
+                browseClass: "btn btn-primary btn-md",
+                allowedFileExtensions: ['jpg', 'png', 'gif'],
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+            });
 
             $(document).ajaxStart(function(){
                 $('.loading-cover').show();

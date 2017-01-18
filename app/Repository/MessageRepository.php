@@ -17,4 +17,9 @@ class MessageRepository extends Repository
 
     //all data action will be whiten here
     //永远不要在Controller 中写 JobRepository->model()
+
+    public function create($data)
+    {
+        return $this->model->create($data);
+    }
 }
