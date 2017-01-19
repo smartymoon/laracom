@@ -17,8 +17,6 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-Admin::css('/packages/dropzone/dropzone.css');
 Admin::css('/css/admin.css');
-Admin::js('/packages/dropzone/dropzone.js');
-Admin::css('/packages/swal/sweetalert.css');
-Admin::js('/packages/swal/sweetalert.min.js');
+
+Encore\Admin\Form::extend('category',\App\Admin\Extensions\Category::class);

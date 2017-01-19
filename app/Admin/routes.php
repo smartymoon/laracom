@@ -23,5 +23,7 @@ Route::group([
     $router->resource('newsCat', NewsCatController::class);
     $router->resource('group', GroupController::class);
 
-    $router->resource('productCategory', ProductCategoryController::class);
+    $router->resource('category', CategoryController::class);
+    $router->resource('product', ProductController::class);
+    $router->resource('attribute', AttributeController::class);
 });

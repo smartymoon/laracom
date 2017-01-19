@@ -102,4 +102,7 @@ return [
     'layout'  => ['sidebar-mini'],
 
     'version'   => '1.0',
+
+
+    // fields for product 
 ];
