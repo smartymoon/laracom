@@ -26,4 +26,8 @@ Route::group([
     $router->resource('category', CategoryController::class);
     $router->resource('product', ProductController::class);
     $router->resource('attribute', AttributeController::class);
+    $router->get('/api/category/{parent?}','ProductController@getNextLevelCategory')->name('getNextLevelCategory');
+
+    $router->get('/product/extendAttribute/{product}','ProductController@extendAttribute')->name('showExtendAttribute');
+    $router->post('/product/extendAttribute','ProductController@extendAttributeStore')->name('storeExtendAttribute');
 });

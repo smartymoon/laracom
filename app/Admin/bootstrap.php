@@ -17,6 +17,7 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-Admin::css('/css/admin.css');
 
-Encore\Admin\Form::extend('category',\App\Admin\Extensions\Category::class);
+Admin::css('/css/admin.css');
+//Encore\Admin\Form::extend('category',\App\Admin\Extensions\Category::class);
+Encore\Admin\Form::extend('categoryTree',\App\Admin\Extensions\CategoryTree::class);

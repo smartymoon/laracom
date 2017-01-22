@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Service\DynamicAttribute;
 use \App\Model\Attribute;
 
 use Encore\Admin\Form;
@@ -70,10 +71,9 @@ class AttributeController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('title','标签')->editable();
-            //TODO 转拼音
             $grid->column('name','字段名');
             $grid->type('类型')->value(function($type){
-                    return '类型'.$type;
+                    return DynamicAttribute::getFieldName($type);
             });
             $grid->created_at();
             $grid->updated_at();
@@ -88,18 +88,15 @@ class AttributeController extends Controller
     protected function form()
     {
         return Admin::form(Attribute::class, function (Form $form) {
-
             $form->display('id', 'ID');
-            $form->category('title');
-            $form->time('name');
-
-            $form->select('type')->options([
-                '100'=>'Select',
-                '200'=>'Text',
-                '300'=>'Number',
-            ]);
+            $form->text('title',"属性名");
+            $form->hidden('name');
+            $form->select('type','属性类型')->options(DynamicAttribute::getFieldTypes());
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
+            $form->saving(function($form){
+                $form->input('name',str_replace(' ','_',pinyin_sentence($form->input('title'))));
+            });
         });
     }
 }
